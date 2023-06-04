@@ -14,6 +14,10 @@
 
 # COMMAND ----------
 
+config
+
+# COMMAND ----------
+
 # DBTITLE 1,Imports
 import mlflow
 import requests

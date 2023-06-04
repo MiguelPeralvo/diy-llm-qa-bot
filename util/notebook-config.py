@@ -24,7 +24,7 @@ _ = spark.catalog.setCurrentDatabase(config['database_name'])
 # DBTITLE 1,Set Environmental Variables for tokens
 import os
 
-os.environ['OPENAI_API_KEY'] = dbutils.secrets.get("solution-accelerator-cicd", "openai_api")
+os.environ['OPENAI_API_KEY'] = dbutils.secrets.get("llms_mp", "openai_api_token") # dbutils.secrets.get("solution-accelerator-cicd", "openai_api")
 
 # COMMAND ----------
 
@@ -52,6 +52,6 @@ config["eval_dataset_path"]= "./data/eval_data.tsv"
 # COMMAND ----------
 
 # DBTITLE 1,Set deployment configs
-config['openai_key_secret_scope'] = "solution-accelerator-cicd" # See `./RUNME` notebook for secret scope instruction - make sure it is consistent with the secret scope name you actually use 
-config['openai_key_secret_key'] = "openai_api" # See `./RUNME` notebook for secret scope instruction - make sure it is consistent with the secret scope key name you actually use
+config['openai_key_secret_scope'] = "llms_mp" # "solution-accelerator-cicd" # See `./RUNME` notebook for secret scope instruction - make sure it is consistent with the secret scope name you actually use 
+config['openai_key_secret_key'] = "openai_api_token"  # "openai_api" # See `./RUNME` notebook for secret scope instruction - make sure it is consistent with the secret scope key name you actually use
 config['serving_endpoint_name'] = "llm-qabot-endpoint"
